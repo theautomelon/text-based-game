@@ -128,8 +128,11 @@ while(not gameOver):
         #gives player the choice of attacking or using an item
         while (not validAnswer1):
             #displays health of enemy and player
-            print(enemy.name+": "+str(enemy.currentHealth)+"/"+str(enemy.maxHealth)+" HP")
-            print(fabio.name+": "+str(fabio.currentHealth)+"/"+str(fabio.maxHealth)+" HP")
+            enemy.displayHealth(6)
+            print(' ' + enemy.name+": "+str(enemy.currentHealth)+"/"+str(enemy.maxHealth)+" HP ")
+            print()
+            fabio.displayHealth(6)
+            print(' ' + fabio.name+": "+str(fabio.currentHealth)+"/"+str(fabio.maxHealth)+" HP ", end='')
             print()
             #asks player if they want to attack or use an item
             print()

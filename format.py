@@ -116,12 +116,12 @@ class Format:
         
         if health == maxHealth:
             #return "\033[1;37;42m[" + str(leftString) + "]" + '\033[1;37;40m '
-            print("\033[1;37;42m[" + str(leftString) + "]" + '\033[1;37;40m ', end = '')
+            print("\033[0;37;42m[" + str(leftString) + "]" + '\033[0;37;40m ', end = '')
         elif health == 0:
             #return "\033[1;37;41m[" + str(rightString) + "]" + '\033[1;37;40m '
-            print("\033[1;37;41m[" + str(rightString) + "]" + '\033[1;37;40m ', end = '') 
+            print("\033[0;37;41m[" + str(rightString) + "]" + '\033[0;37;40m ', end = '') 
         else:    
             #return "\033[1;37;41m[" + str(rightString) + "]" + '\033[1;37;40m '
-            print("\033[1;37;42m[" + str(leftString) + "\033[1;37;41m" + str(rightString) + "]" + '\033[1;37;40m ', end = '')
+            print("\033[0;37;42m[" + str(leftString) + "\033[0;37;41m" + str(rightString) + "]" + '\033[0;37;40m ', end = '')
         
           
