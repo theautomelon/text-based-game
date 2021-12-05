@@ -13,15 +13,15 @@ class Monster:
         elif species == 'Bobcat':
             self.health = 100
             self.attack = 60
-            self.crit = 0
+            self.crit = 5
         elif species == 'Coyote':
             self.health = 150
             self.attack = 70
-            self.crit = 0
+            self.crit = 5
         elif species == 'Owl':
             self.health = 100
             self.attack = 100
-            self.crit = 0
+            self.crit = 15
         elif species == 'Eagle':
             self.health = 125
             self.attack = 110
