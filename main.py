@@ -8,6 +8,7 @@ from monster import *
 gameOver = False
 introText= "Welcome, you little weasel. You are a ferret, specifically Fabio the Illustrious Ferret. You, in your infinite wisdom, have decided to escape from your human enslavers and embark on a journey to finally make a name for yourself. The road to stardom is arduous but luckily your former masters taught you everything there is to know about the ancient combat ritual 剪刀石頭布, or as the filthy Americans call it- Rock, Paper, Scissors. Stay on your guard, as there is not telling what dangers may lie ahead."
 stage = 0
+validAnswer = False
 #FUNCTIONS
 
 #print out story and create player character
@@ -24,6 +25,7 @@ def setup():
 #function which generates one of 3 values and compares it against player choice
 #simulates rock paper scissors
 def rps(player):
+
 
     #three outcomes- tie, win (player wins), loss, (monster wins)
     outcome=""
@@ -82,12 +84,32 @@ while(not gameOver):
     elif (stage == 4):
         enemy = Monster("Eddy", "Eagle")
     
+    #prints name of enemy
     print("You have come across "+ enemy.name + " the "+ enemy.species)
+    print("")
 
+    #Rock paper scissors loop
+    while(not validAnswer):
+        print("What attack would you like to select?")
+        player = input("Rock, Paper, or Scissors?")
+        if(player == "rock" or player == "Rock"):
+            player = 1
+            validAnswer=True
+        elif(player == "paper" or player == "Paper"):
+            player = 2
+            validAnswer=True
+        elif(player == "scissors" or player == "Scissors"):
+            player = 2
+            validAnswer=True
+        else:
+            print("Please choose a valid answer")
+
+    print(rps(player))
 
 
     #increases stage after loop, ends game once past 4
     stage+=1
+    validAnswer = False
     if (stage == 5):
         gameOver = True
 
