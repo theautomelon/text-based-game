@@ -1,9 +1,25 @@
 import random as r
+import textwrap
+
 
 #VARIABLES
 gameOver = False
+introText= "Welcome, you little weasel. You are a ferret, specifically Fabio the Illustrious Ferret. You, in your infinite wisdom, have decided to escape from your human enslavers and embark on a journey to finally make a name for yourself. The road to stardom is arduous but luckily your former masters taught you everything there is to know about the ancient combat ritual 剪刀石頭布, or as the filthy Americans call it- Rock, Paper, Scissors. Stay on your guard, as there is not telling what dangers may lie ahead."
 
 #FUNCTIONS
+
+#print out story and create player character
+def setup():
+
+    #create object of player class
+
+    #story introduction
+    dedentedText = textwrap.dedent(introText).strip()
+    print(dedentedText)
+
+    
+
+
 
 #function which generates one of 3 values and compares it against player choice
 #simulates rock paper scissors
@@ -49,6 +65,8 @@ def rps(player):
 
 #GAME LOOP
 
+#prints introduction and create player object
+setup()
 
 while(not gameOver):
 
