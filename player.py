@@ -12,5 +12,3 @@ class Player:
         # this is purely for debugging
         if debug:
             print('Creating ' + str(self.name) + ' the ' + str(self.species) + ' with ' + str(self.health) + ' health, ' + str(self.attack) + ' attack, and ' + str(self.crit) + '%' + ' crit-chance')
-
-Fabio = Player("Fabio")

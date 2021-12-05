@@ -1,5 +1,6 @@
 import random as r
 import textwrap
+from player import *
 
 
 #VARIABLES
@@ -12,14 +13,12 @@ introText= "Welcome, you little weasel. You are a ferret, specifically Fabio the
 def setup():
 
     #create object of player class
-
-    #story introduction
+    Fabio = Player("Fabio")
+    #story introduction dedentedText makes text look nicer
     dedentedText = textwrap.dedent(introText).strip()
     print(dedentedText)
 
     
-
-
 
 #function which generates one of 3 values and compares it against player choice
 #simulates rock paper scissors
@@ -70,7 +69,7 @@ setup()
 
 while(not gameOver):
 
-
+    
 
 
     pass
