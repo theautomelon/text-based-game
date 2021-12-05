@@ -3,11 +3,11 @@ import textwrap
 from player import *
 from monster import *
 from items import *
+from format import *
 
 
 #VARIABLES
 gameOver = False
-introText= "Welcome, you little weasel. You are a ferret, specifically Fabio the Illustrious Ferret. You, in your infinite wisdom, have decided to escape from your human enslavers and embark on a journey to finally make a name for yourself. The road to stardom is arduous but luckily your former masters taught you everything there is to know about the ancient combat ritual 剪刀石頭布, or as the filthy Americans call it- Rock, Paper, Scissors. Stay on your guard, as there is not telling what dangers may lie ahead."
 stage = 0
 validAnswer = False
 #FUNCTIONS
@@ -16,27 +16,19 @@ validAnswer = False
 def setup():
     
     #starting game
-    #ASCII art taken from http://www.ascii-art.de/ascii/def/ferret.txt
     print(' ')
-    print(",____          (\=-,")
-    print("\ '=.`'-.______/ /^")
-    print(" `-._.-'(=====' /")
-    print("         \<'--\(")
-    print("          ^^   ^^")
+    Format.printFerret()
     print(' ')
+    Format.printDivider(42)
     
-    print(" ______     ______     ______     __  __        ______   ______     ______   ______     ______        ______   ______     ______     ______     ______     ______  ")
-    print("/\  == \   /\  __ \   /\  ___\   /\ \/ /       /\  == \ /\  __ \   /\  == \ /\  ___\   /\  == \      /\  ___\ /\  ___\   /\  == \   /\  == \   /\  ___\   /\__  _\ ")
-    print("\ \  __<   \ \ \/\ \  \ \ \____  \ \  _'-.     \ \  _-/ \ \  __ \  \ \  _-/ \ \  __\   \ \  __<      \ \  __\ \ \  __\   \ \  __<   \ \  __<   \ \  __\   \/_/\ \/ ")
-    print(" \ \_\ \_\  \ \_____\  \ \_____\  \ \_\ \_\     \ \_\    \ \_\ \_\  \ \_\    \ \_____\  \ \_\ \_\     \ \_\    \ \_____\  \ \_\ \_\  \ \_\ \_\  \ \_____\    \ \_\ ")
-    print("  \/_/ /_/   \/_____/   \/_____/   \/_/\/_/      \/_/     \/_/\/_/   \/_/     \/_____/   \/_/ /_/      \/_/     \/_____/   \/_/ /_/   \/_/ /_/   \/_____/     \/_/ ")
-    print("                                                                                                                                                                   ")
+    print(' ')
+    Format.printGameTitle()
+    print(' ')
 
-    
     #story introduction dedentedText makes text look nicer
-    dedentedText = textwrap.dedent(introText).strip()
-    print(dedentedText)
-    input("Press enter to continue.")
+    Format.printScroll()
+    print(' ')
+    input("        PRESS ENTER TO CONTINUE")
 
 
 #function which generates one of 3 values and compares it against player choice
@@ -103,7 +95,7 @@ while(not gameOver):
         enemy = Monster("Eddy", "Eagle")
     
     #prints name of enemy
-    print('-----------------------------------------------')
+    Format.printDivider(4)
     print()
     print("You have come across "+ enemy.name + " the "+ enemy.species)
     print("")
