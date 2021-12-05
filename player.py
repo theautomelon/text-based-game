@@ -90,13 +90,3 @@ class Player:
         self.maxCrit += r.randint(1,5)
         self.crit = self.maxCrit
         
-    def use(player,item):
-        if (item.amount >= 1):
-            item.use(player)
-            item.amount-=1
-            if (item.name== "White Claw"):
-                player.clawActive = True
-        else:
-            print("You have no " + item.name+ "s")
-
-

@@ -149,7 +149,7 @@ while(not gameOver):
             combatOver = fabio.checkDead()
             hP = hPotion()
             hP.amount +=1
-            fabio.use(hPotion)
+            hPotion.use(fabio)
         else:
             print()
             print("Twinning! " + enemy.name + " chose the same move! Try again.")
@@ -165,7 +165,6 @@ while(not gameOver):
         print()
 
         
-
     if (fabio.checkDead()):
         print()
         print("Aye, ya blasted Ferret! You succumbed to your wounds. I knew you could never make it!")
