@@ -153,7 +153,13 @@ while(not gameOver):
     #checks if either player or monster is dead
     if (enemy.checkDead()):
         print()
-        print(enemy.name+ " is dead! May he rest in hell!")
+        print(enemy.name+ " is dead! May he rest in hell! As a reward for your efforts your stats are now: ")
+        print("Max Health: "+ str(fabio.maxHealth))
+        print("Attack: " + str(fabio.attackDamage))
+        print("Crit-Chance: "+ str(fabio.crit))
+        print()
+
+        
 
     if (fabio.checkDead()):
         print()
