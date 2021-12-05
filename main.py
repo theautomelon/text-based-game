@@ -1,12 +1,13 @@
 import random as r
 import textwrap
 from player import *
+from monster import *
 
 
 #VARIABLES
 gameOver = False
 introText= "Welcome, you little weasel. You are a ferret, specifically Fabio the Illustrious Ferret. You, in your infinite wisdom, have decided to escape from your human enslavers and embark on a journey to finally make a name for yourself. The road to stardom is arduous but luckily your former masters taught you everything there is to know about the ancient combat ritual 剪刀石頭布, or as the filthy Americans call it- Rock, Paper, Scissors. Stay on your guard, as there is not telling what dangers may lie ahead."
-
+stage = 0
 #FUNCTIONS
 
 #print out story and create player character
@@ -69,7 +70,25 @@ setup()
 
 while(not gameOver):
 
+    #checks stage number to assign monster type
+    if (stage == 0):
+        enemy = Monster("Billy", "Badger")
+    elif (stage == 1):
+        enemy = Monster("Gargamel", "Bobcat")
+    elif (stage == 2):
+        enemy = Monster("Wily", "Coyote")
+    elif (stage == 3):
+        enemy = Monster("Gahool", "Owl")
+    elif (stage == 4):
+        enemy = Monster("Eddy", "Eagle")
+    
+    print("You have come across "+ enemy.name + " the "+ enemy.species)
 
 
 
-    pass
+    #increases stage after loop, ends game once past 4
+    stage+=1
+    if (stage == 5):
+        gameOver = True
+
+    
