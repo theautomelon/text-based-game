@@ -17,8 +17,8 @@ def setup():
     #story introduction dedentedText makes text look nicer
     dedentedText = textwrap.dedent(introText).strip()
     print(dedentedText)
+    input("Press enter to continue.")
 
-    
 
 #function which generates one of 3 values and compares it against player choice
 #simulates rock paper scissors
@@ -69,7 +69,7 @@ setup()
 
 while(not gameOver):
 
-    
+
 
 
     pass
