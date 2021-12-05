@@ -94,6 +94,7 @@ def rps(player):
 setup()
 fabio = Player("Fabio")
 
+
 while(not gameOver):
 
     #checks stage number to assign monster type
@@ -172,20 +173,14 @@ while(not gameOver):
                         validAnswerB=True
                     elif(item not in '123456789'):
                         print("Please choose a valid item number.")
-                    elif(not fabio.inventory[int(item)]):
+                    elif(not fabio.inventory[int(item)-1]):
                         print("You do not have an item in that slot!")
                     else:
-                        useItem(fabio.inventory[int(item)], fabio)
+                        useItem(fabio.inventory[int(item)-1], fabio,fabio.inventory)
                         validAnswerB=True
                     print()
             else:
                 print("Please choose a valid option.")
-
-
-
-
-
-
 
 
         outcome = rps(player)
