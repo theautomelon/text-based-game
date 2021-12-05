@@ -77,9 +77,9 @@ class Player:
             self.healthStatus()
 
     def upgradeStats(self):
-        # increase health by 20-40
-        self.maxHealth += r.randint(20,40)
+        # increase health by 10-30
+        self.maxHealth += r.randint(10,30)
         # increase health by 10-20
         self.attackDamage += r.randint(10,20)
-        # increase crit by 1-10
-        self.crit += r.randint(1,10)
+        # increase crit by 1-5
+        self.crit += r.randint(1,5)
