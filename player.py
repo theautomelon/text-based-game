@@ -15,9 +15,7 @@ class Player:
         self.maxCrit = 10
         self.crit = self.maxCrit
         
-        self.hPotionActive = False
         self.clawActive = False
-        self.bombActive = False
         
         self.inventory = []
 
@@ -92,14 +90,13 @@ class Player:
         self.maxCrit += r.randint(1,5)
         self.crit = self.maxCrit
         
-    def useHPotion():
-        # TODO
-        pass
-    
-    def useClaw():
-        # TODO
-        pass
-    
-    def useBomb():
-        # TODO
-        pass
+    def use(player,item):
+        if (item.amount >= 1):
+            item.use(player)
+            item.amount-=1
+            if (item.name== "White Claw"):
+                player.clawActive = True
+        else:
+            print("You have no " + item.name+ "s")
+
+

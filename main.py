@@ -147,6 +147,9 @@ while(not gameOver):
             print()
             enemy.attack(fabio)
             combatOver = fabio.checkDead()
+            hP = hPotion()
+            hP.amount +=1
+            fabio.use(hPotion)
         else:
             print()
             print("Twinning! " + enemy.name + " chose the same move! Try again.")
