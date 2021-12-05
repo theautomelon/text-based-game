@@ -13,9 +13,7 @@ validAnswer = False
 
 #print out story and create player character
 def setup():
-
-    #create object of player class
-    Fabio = Player("Fabio")
+    
     #story introduction dedentedText makes text look nicer
     dedentedText = textwrap.dedent(introText).strip()
     print(dedentedText)
@@ -69,6 +67,7 @@ def rps(player):
 
 #prints introduction and create player object
 setup()
+fabio = Player("Fabio")
 
 while(not gameOver):
 
@@ -88,6 +87,8 @@ while(not gameOver):
     print("You have come across "+ enemy.name + " the "+ enemy.species)
     print("")
 
+    combatOver = False
+
     #Rock paper scissors loop
     while(not validAnswer):
         print("What attack would you like to select?")
@@ -104,7 +105,17 @@ while(not gameOver):
         else:
             print("Please choose a valid answer")
 
-    print(rps(player))
+    outcome = rps(player)
+
+    if(outcome == "win"):
+        print("You have outwitted "+ enemy.name)
+        fabio.attack(enemy)
+    elif(outcome == "loss"):
+        print("Alas! " + enemy.name +" landed a blow!")
+        enemy.attack(fabio)
+    
+    #check for death
+
 
 
     #increases stage after loop, ends game once past 4
