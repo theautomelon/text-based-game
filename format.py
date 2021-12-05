@@ -1,5 +1,8 @@
 import textwrap
 import time
+from player import *
+from monster import *
+from items import *
 
 class Format:
     def printFerret(): #ASCII art taken from http://www.ascii-art.de/ascii/def/ferret.txt
@@ -28,7 +31,7 @@ class Format:
         for i in range(length-2):
             divider += midChar
         divider += startAndEndChar
-        print(divider)
+        print(divider, end = '')
         
     def printScroll(): #scroll taken from https://ascii.co.uk/art/scroll
         sleepTime = 0.75
@@ -102,4 +105,23 @@ class Format:
         time.sleep(sleepTime*0.5)
         print("  '-'----------------------------------'")
         
+    def displayHealth(health, maxHealth, length):
+        displayHealth = '['
+        ratio = health/maxHealth
+        leftHealth = (int)(ratio * length)
+        leftString = leftHealth * ' '
+        rightHealth = (int)(length - leftHealth)
+        rightString = rightHealth * ' '
         
+        
+        if health == maxHealth:
+            #return "\033[1;37;42m[" + str(leftString) + "]" + '\033[1;37;40m '
+            print("\033[1;37;42m[" + str(leftString) + "]" + '\033[1;37;40m ', end = '')
+        elif health == 0:
+            #return "\033[1;37;41m[" + str(rightString) + "]" + '\033[1;37;40m '
+            print("\033[1;37;41m[" + str(rightString) + "]" + '\033[1;37;40m ', end = '') 
+        else:    
+            #return "\033[1;37;41m[" + str(rightString) + "]" + '\033[1;37;40m '
+            print("\033[1;37;42m[" + str(leftString) + "\033[1;37;41m" + str(rightString) + "]" + '\033[1;37;40m ', end = '')
+        
+          
