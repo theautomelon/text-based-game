@@ -10,7 +10,13 @@ gameOver = False
 introText= "Welcome, you little weasel. You are a ferret, specifically Fabio the Illustrious Ferret. You, in your infinite wisdom, have decided to escape from your human enslavers and embark on a journey to finally make a name for yourself. The road to stardom is arduous but luckily your former masters taught you everything there is to know about the ancient combat ritual 剪刀石頭布, or as the filthy Americans call it- Rock, Paper, Scissors. Stay on your guard, as there is not telling what dangers may lie ahead."
 stage = 0
 validAnswer = False
+itemNames = ['Health Potion','White Claw', 'Bomb']
 #FUNCTIONS
+
+#prints out names in an inventory list
+def printInv(inventory):
+    for i in range(len(inventory)):
+        print("Item "+ str(i+1) + ": " + inventory[i].name)
 
 #print out story and create player character
 def setup():
@@ -37,6 +43,7 @@ def setup():
     dedentedText = textwrap.dedent(introText).strip()
     print(dedentedText)
     input("Press enter to continue.")
+
 
 
 #function which generates one of 3 values and compares it against player choice
@@ -78,8 +85,6 @@ def rps(player):
             outcome= "loss"
 
     return outcome
-
-
 
 
 #GAME LOOP
@@ -147,9 +152,9 @@ while(not gameOver):
             print()
             enemy.attack(fabio)
             combatOver = fabio.checkDead()
-            hP = hPotion()
-            hP.amount +=1
-            hPotion.use(fabio)
+            healthPotion = createItem("hp")
+            useItem(healthPotion.name, fabio)
+
         else:
             print()
             print("Twinning! " + enemy.name + " chose the same move! Try again.")
@@ -175,7 +180,6 @@ while(not gameOver):
     #increases stage after loop, ends game once past 4
     stage+=1
     #heals player character after combat ends
-    fabio.healFull()
     validAnswer = False
     if (stage == 5):
         print()
