@@ -13,7 +13,10 @@ class Item():
         self.quantity = quantity
         self.description = ''
     def itemAdd(self,inventory):
-        inventory.append(self)
+        for i in range(len(inventory)):
+            if inventory[i] == '':
+                inventory[i]= self.name
+                break
 
 #defines the subclass weapon for the item class
 class Weapon(Item):
@@ -35,7 +38,7 @@ def createItem(name):
         return claw
 
     elif(name.lower() == 'bomb'):
-        bomb = Weapon("Bomb", 150, 1)
+        bomb = Weapon("Bomb", 150, 1, 100)
         bomb.description='Use this to deal 100 damage to an enemy monster.'
         bomb.damage=100
         return bomb

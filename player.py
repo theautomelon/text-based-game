@@ -17,7 +17,7 @@ class Player:
         
         self.clawActive = False
         
-        self.inventory = []
+        self.inventory = ['', '', '', '', '', '', '', '', '',]
 
         if debug:   # only prints if debug is set to True
             print('DEBUG:   Creating ' + str(self.name) + ' the ' + str(self.species) + ' with ' + str(self.maxHealth) + ' health, ' + str(self.attackDamage) + ' attack, and ' + str(self.crit) + '%' + ' crit-chance')
@@ -83,7 +83,9 @@ class Player:
 
     def upgradeStats(self):
         # increase health by 10-30
-        self.maxHealth += r.randint(10,30)
+        hIncrease = r.randint(10,30)
+        self.maxHealth += hIncrease
+        self.currentHealth += hIncrease
         # increase health by 10-20
         self.attackDamage += r.randint(10,20)
         # increase crit by 1-5

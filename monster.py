@@ -3,7 +3,6 @@ from player import *
 
 debug = False
 
-
 class Monster:
     def __init__(self, name, species):
         
