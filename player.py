@@ -12,7 +12,13 @@ class Player:
         self.maxHealth = 100
         self.currentHealth = self.maxHealth
         self.attackDamage = 50
-        self.crit = 10
+        self.maxCrit = 10
+        self.crit = self.maxCrit
+        
+        self.hPotionActive = False
+        self.clawActive = False
+        self.bombActive = False
+        
         self.inventory = []
 
         if debug:   # only prints if debug is set to True
@@ -83,4 +89,17 @@ class Player:
         # increase health by 10-20
         self.attackDamage += r.randint(10,20)
         # increase crit by 1-5
-        self.crit += r.randint(1,5)
+        self.maxCrit += r.randint(1,5)
+        self.crit = self.maxCrit
+        
+    def useHPotion():
+        # TODO
+        pass
+    
+    def useClaw():
+        # TODO
+        pass
+    
+    def useBomb():
+        # TODO
+        pass
