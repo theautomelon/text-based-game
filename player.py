@@ -1,5 +1,6 @@
 import random as r
 from monster import *
+from format import *
 
 debug = False
 
@@ -91,4 +92,6 @@ class Player:
         # increase crit by 1-5
         self.maxCrit += r.randint(1,5)
         self.crit = self.maxCrit
-        
+    
+    def displayHealth(self, length):
+        Format.displayHealth(self.currentHealth, self.maxHealth, length)

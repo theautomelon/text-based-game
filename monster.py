@@ -1,5 +1,6 @@
 import random as r
 from player import *
+from format import *
 
 debug = False
 
@@ -92,3 +93,6 @@ class Monster:
         if debug:   #only prints if debug is set to True
             print('DEBUG:   The enemy has been fully healed!')
             self.healthStatus()
+            
+    def displayHealth(self, length):
+        Format.displayHealth(self.currentHealth, self.maxHealth, length)
