@@ -220,6 +220,7 @@ while(not gameOver):
         gameOver= True
         break
 
+    print(fabio.inventory)
     printInv(fabio.inventory)
     #increases stage after loop, ends game once past 4
     stage+=1
