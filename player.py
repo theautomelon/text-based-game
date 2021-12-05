@@ -13,6 +13,7 @@ class Player:
         self.currentHealth = self.maxHealth
         self.attackDamage = 50
         self.crit = 10
+        self.inventory = []
 
         if debug:   # only prints if debug is set to True
             print('DEBUG:   Creating ' + str(self.name) + ' the ' + str(self.species) + ' with ' + str(self.maxHealth) + ' health, ' + str(self.attackDamage) + ' attack, and ' + str(self.crit) + '%' + ' crit-chance')
