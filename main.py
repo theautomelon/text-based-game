@@ -114,7 +114,7 @@ while(not gameOver):
                 print("Please choose a valid answer")
 
         outcome = rps(player)
-
+        #chooses attack and message based on outcome of rps function
         if(outcome == "win"):
             print()
             print("You have outwitted "+ enemy.name)
@@ -132,7 +132,7 @@ while(not gameOver):
             print("Twinning! " + enemy.name + " chose the same move! Try again.")
             print()
     
-    
+    #checks if either player or monster is dead
     if (enemy.checkDead()):
         print()
         print(enemy.name+ " is dead! May he rest in hell!")
