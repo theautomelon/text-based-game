@@ -45,7 +45,7 @@ def createItem(name):
 
 
 #defines items uses
-def useItem(name, creature):
+def useItem(name, creature,inventory):
     if(name.lower() == "hp" or name.lower() == "health potion"):
         if(creature.name == "Fabio"):
             healAmount = r.randint(40,60)
@@ -65,6 +65,8 @@ def useItem(name, creature):
             creature.currentHealth-= 100
         else:
             print("You cannot use a bomb on yourself!")
+    inventory.remove(name)
+    
 
 #undos the white claw item
 def undoItem(name, creature):
