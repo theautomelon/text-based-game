@@ -2,6 +2,7 @@ import random as r
 import textwrap
 from player import *
 from monster import *
+from items import *
 
 
 #VARIABLES
