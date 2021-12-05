@@ -16,6 +16,7 @@ class Player:
         if debug:
             print('Creating ' + str(self.name) + ' the ' + str(self.species) + ' with ' + str(self.health) + ' health, ' + str(self.attackDamage) + ' attack, and ' + str(self.crit) + '%' + ' crit-chance')
 
+
     def healthStatus(self):
             print('You have ' + str(self.health) + ' health')
             
@@ -30,10 +31,14 @@ class Player:
             print('You did ' + str(damage) + ' damage to ' + monster.name + ' the ' + monster.species)
         
         monster.health = monster.health - damage
-        if monster.health <= 0:
-            print('You killed ' + monster.name)
+    
         
+    def checkDead(self):
+        if self.health <= 0:
+            print(str(self.name) + ' the ' + str(self.species) + ' has died')
+            return True
+        else:
+            return False
         
-
 
 

@@ -42,6 +42,7 @@ class Monster:
         damage = r.randint(self.attackDamage -10,self.attackDamage +10)
         
         
+        
         if r.randint(0,100) < self.crit:
             damage = damage * 2
             print('It was a critical hit! ' + self.name + ' did ' + str(damage) + ' damage to you')
@@ -49,5 +50,13 @@ class Monster:
             print(self.name + ' did ' + str(damage) + ' damage to you')
         
         player.health = player.health - damage
-        if player.health <= 0:
-            print(str(self.name) + ' the ' + str(self.species) + ' killed you')
+        
+        return
+        
+    
+    def checkDead(self):
+        if self.health <= 0:
+            print(str(self.name) + ' the ' + str(self.species) + ' has died')
+            return True
+        else:
+            return False
