@@ -94,6 +94,11 @@ while(not gameOver):
         validAnswer = False
         #Rock paper scissors loop
         while(not validAnswer):
+            #displays health of enemy and player
+            print(enemy.name+": "+enemy.currentHealth+"/"+enemy.maxHealth)
+            print(fabio.name+": "+fabio.currentHealth+"/"+fabio.maxHealth)
+            print()
+            #asks player for move input
             print("What attack would you like to select?")
             player = input("Rock, Paper, or Scissors? ")
             if(player == "rock" or player == "Rock"):
@@ -109,7 +114,7 @@ while(not gameOver):
                 print("Please choose a valid answer")
 
         outcome = rps(player)
-
+        
         if(outcome == "win"):
             print()
             print("You have outwitted "+ enemy.name)
@@ -141,6 +146,8 @@ while(not gameOver):
 
     #increases stage after loop, ends game once past 4
     stage+=1
+    #heals player character after combat ends
+    fabio.healFull()
     validAnswer = False
     if (stage == 5):
         print()

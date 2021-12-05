@@ -29,8 +29,10 @@ class Player:
         if r.randint(0,100) < self.crit:
             damage = damage * 2
             print('It was a critical hit! You did ' + str(damage) + ' damage to ' + monster.name + ' the ' + monster.species)
+            print()
         else:
             print('You did ' + str(damage) + ' damage to ' + monster.name + ' the ' + monster.species)
+            print()
         
         monster.currentHealth = monster.currentHealth - damage
     
@@ -49,10 +51,10 @@ class Player:
             self.currentHealth = self.maxHealth
             
         print('You have been partially healed!')
-        self.healthStatus()
+        
         
     def healFull(self):
         self.currentHealth = self.maxHealth
 
         print('You have been fully healed!')
-        self.healthStatus()
+        
