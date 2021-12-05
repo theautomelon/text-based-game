@@ -84,44 +84,67 @@ while(not gameOver):
         enemy = Monster("Eddy", "Eagle")
     
     #prints name of enemy
+    print()
     print("You have come across "+ enemy.name + " the "+ enemy.species)
     print("")
 
     combatOver = False
+    while(not combatOver):
+        outcome = ""
+        validAnswer = False
+        #Rock paper scissors loop
+        while(not validAnswer):
+            print("What attack would you like to select?")
+            player = input("Rock, Paper, or Scissors? ")
+            if(player == "rock" or player == "Rock"):
+                player = 1
+                validAnswer=True
+            elif(player == "paper" or player == "Paper"):
+                player = 2
+                validAnswer=True
+            elif(player == "scissors" or player == "Scissors"):
+                player = 2
+                validAnswer=True
+            else:
+                print("Please choose a valid answer")
 
-    #Rock paper scissors loop
-    while(not validAnswer):
-        print("What attack would you like to select?")
-        player = input("Rock, Paper, or Scissors?")
-        if(player == "rock" or player == "Rock"):
-            player = 1
-            validAnswer=True
-        elif(player == "paper" or player == "Paper"):
-            player = 2
-            validAnswer=True
-        elif(player == "scissors" or player == "Scissors"):
-            player = 2
-            validAnswer=True
+        outcome = rps(player)
+
+        if(outcome == "win"):
+            print()
+            print("You have outwitted "+ enemy.name)
+            print()
+            fabio.attack(enemy)
+            combatOver = enemy.checkDead()
+        elif(outcome == "loss"):
+            print()
+            print("Alas! " + enemy.name +" landed a blow!")
+            print()
+            enemy.attack(fabio)
+            combatOver = fabio.checkDead()
         else:
-            print("Please choose a valid answer")
-
-    outcome = rps(player)
-
-    if(outcome == "win"):
-        print("You have outwitted "+ enemy.name)
-        fabio.attack(enemy)
-    elif(outcome == "loss"):
-        print("Alas! " + enemy.name +" landed a blow!")
-        enemy.attack(fabio)
+            print()
+            print("Twinning! " + enemy.name + " chose the same move! Try again.")
+            print()
     
-    #check for death
+    
+    if (enemy.checkDead()):
+        print()
+        print(enemy.name+ " is dead! May he rest in hell!")
 
+    if (fabio.checkDead()):
+        print()
+        print("Aye, ya blasted Ferret! You succumbed to your wounds. I knew you could never make it!")
+        gameOver= True
+        break
 
 
     #increases stage after loop, ends game once past 4
     stage+=1
     validAnswer = False
     if (stage == 5):
+        print()
+        print("I always knew ya had it in ya!")
         gameOver = True
-
+        break
     
