@@ -1,7 +1,7 @@
 import random as r
 from monster import *
 
-debug = True
+debug = False
 
 class Player:
     def __init__(self, name):
@@ -19,10 +19,11 @@ class Player:
 
 
     def healthStatus(self):
-            print('You have ' + str(self.currentHealth) + ' health')
+            print('You have ' + str(self.currentHealth) + '/' + str(self.maxHealth) + ' health')
             
     def attack(self, monster):
         damage = r.randint(self.attackDamage -10,self.attackDamage +10)
+        
         
         
         if r.randint(0,100) < self.crit:
@@ -41,5 +42,17 @@ class Player:
         else:
             return False
         
+    def heal(self, healAmount):
+        self.currentHealth = self.currentHealth + healAmount
+        
+        if self.currentHealth > self.maxHealth:
+            self.currentHealth = self.maxHealth
+            
+        print('You have been partially healed!')
+        self.healthStatus()
+        
+    def healFull(self):
+        self.currentHealth = self.maxHealth
 
-
+        print('You have been fully healed!')
+        self.healthStatus()

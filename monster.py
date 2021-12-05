@@ -1,7 +1,7 @@
 import random as r
 from player import *
 
-debug = True
+debug = False
 
 
 class Monster:
@@ -38,7 +38,7 @@ class Monster:
             print('Creating ' + str(self.name) + ' the ' + str(self.species) + ' with ' + str(self.maxHealth) + ' health, ' + str(self.attackDamage) + ' attack, and ' + str(self.crit) + '%' + ' crit-chance')
 
     def healthStatus(self):
-        print(str(self.name) + ' the ' + str(self.species) + ' has ' + str(self.currentHealth) + ' health')
+        print(str(self.name) + ' the ' + str(self.species) + ' has ' + str(self.currentHealth) + '/' + str(self.maxHealth) + ' health')
     
     def attack(self, player):
         damage = r.randint(self.attackDamage -10,self.attackDamage +10)
@@ -62,3 +62,18 @@ class Monster:
             return True
         else:
             return False
+    
+    def heal(self, healAmount):
+        self.currentHealth = self.currentHealth + healAmount
+        
+        if self.currentHealth > self.maxHealth:
+            self.currentHealth = self.maxHealth
+            
+        print('The enemy has been partially healed!')
+        self.healthStatus()
+        
+    def healFull(self):
+        self.currentHealth = self.maxHealth
+
+        print('The enemy has been fully healed!')
+        self.healthStatus()
