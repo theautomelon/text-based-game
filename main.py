@@ -14,6 +14,24 @@ validAnswer = False
 #print out story and create player character
 def setup():
     
+    #starting game
+    #ASCII art taken from http://www.ascii-art.de/ascii/def/ferret.txt
+    print(' ')
+    print(",____          (\=-,")
+    print("\ '=.`'-.______/ /^")
+    print(" `-._.-'(=====' /")
+    print("         \<'--\(")
+    print("          ^^   ^^")
+    print(' ')
+    
+    print(" ______     ______     ______     __  __        ______   ______     ______   ______     ______        ______   ______     ______     ______     ______     ______  ")
+    print("/\  == \   /\  __ \   /\  ___\   /\ \/ /       /\  == \ /\  __ \   /\  == \ /\  ___\   /\  == \      /\  ___\ /\  ___\   /\  == \   /\  == \   /\  ___\   /\__  _\ ")
+    print("\ \  __<   \ \ \/\ \  \ \ \____  \ \  _'-.     \ \  _-/ \ \  __ \  \ \  _-/ \ \  __\   \ \  __<      \ \  __\ \ \  __\   \ \  __<   \ \  __<   \ \  __\   \/_/\ \/ ")
+    print(" \ \_\ \_\  \ \_____\  \ \_____\  \ \_\ \_\     \ \_\    \ \_\ \_\  \ \_\    \ \_____\  \ \_\ \_\     \ \_\    \ \_____\  \ \_\ \_\  \ \_\ \_\  \ \_____\    \ \_\ ")
+    print("  \/_/ /_/   \/_____/   \/_____/   \/_/\/_/      \/_/     \/_/\/_/   \/_/     \/_____/   \/_/ /_/      \/_/     \/_____/   \/_/ /_/   \/_/ /_/   \/_____/     \/_/ ")
+    print("                                                                                                                                                                   ")
+
+    
     #story introduction dedentedText makes text look nicer
     dedentedText = textwrap.dedent(introText).strip()
     print(dedentedText)
