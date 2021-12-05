@@ -5,6 +5,8 @@ debug = False
 
 class Player:
     def __init__(self, name):
+        
+        # initialize the player's stats
         self.name = name
         self.species = 'Ferret'
         self.maxHealth = 100
@@ -12,49 +14,65 @@ class Player:
         self.attackDamage = 50
         self.crit = 10
 
-        # print player to when creating to validate
-        # this is purely for debugging
-        if debug:
-            print('Creating ' + str(self.name) + ' the ' + str(self.species) + ' with ' + str(self.maxHealth) + ' health, ' + str(self.attackDamage) + ' attack, and ' + str(self.crit) + '%' + ' crit-chance')
+        if debug:   # only prints if debug is set to True
+            print('DEBUG:   Creating ' + str(self.name) + ' the ' + str(self.species) + ' with ' + str(self.maxHealth) + ' health, ' + str(self.attackDamage) + ' attack, and ' + str(self.crit) + '%' + ' crit-chance')
 
-
+    # checks the player's current health
     def healthStatus(self):
             print('You have ' + str(self.currentHealth) + '/' + str(self.maxHealth) + ' health')
             
+    # player attacks the monster
     def attack(self, monster):
+        
+        # calculates the initial damage using attack stat
         damage = r.randint(self.attackDamage -10,self.attackDamage +10)
         
+        if debug:   #only prints if debug is set to True
+            print('DEBUG:   Precrit Damage:' + str(damage))
         
-        
-        if r.randint(0,100) < self.crit:
+        # calculates if it is a crit attack
+        if r.randint(0,100) < self.crit:    #if it is a crit hit
             damage = damage * 2
             print('It was a critical hit! You did ' + str(damage) + ' damage to ' + monster.name + ' the ' + monster.species)
             print()
-        else:
+
+        else:   #if it is not a crit hit
             print('You did ' + str(damage) + ' damage to ' + monster.name + ' the ' + monster.species)
             print()
         
+        # subtracts the damage from the monster's current health
         monster.currentHealth = monster.currentHealth - damage
-    
         
+        return
+    
+    # checks if the player is dead
+    # returns a boolean (True if dead, False if not dead)    
     def checkDead(self):
         if self.currentHealth <= 0:
-            print(str(self.name) + ' the ' + str(self.species) + ' has died')
+            if debug: #only prints if debug is set to True 
+                print('DEBUG:   ' + str(self.name) + ' the ' + str(self.species) + ' has died')
             return True
         else:
             return False
         
+    # heals the player a set amount   
     def heal(self, healAmount):
         self.currentHealth = self.currentHealth + healAmount
         
         if self.currentHealth > self.maxHealth:
             self.currentHealth = self.maxHealth
-            
-        print('You have been partially healed!')
         
-        
+        if debug:   #only prints if debug is set to True 
+            print('DEBUG:   You have been partially healed!')
+            self.healthStatus()
+    
+    #heals the player fully    
     def healFull(self):
         self.currentHealth = self.maxHealth
 
         print('You have been fully healed!')
         
+        if debug:   #only prints if debug is set to True 
+            print('DEBUG:   You have been fully healed!')
+            self.healthStatus()
+
