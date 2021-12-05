@@ -102,6 +102,7 @@ while(not gameOver):
         enemy = Monster("Eddy", "Eagle")
     
     #prints name of enemy
+    print('-----------------------------------------------')
     print()
     print("You have come across "+ enemy.name + " the "+ enemy.species)
     print("")
