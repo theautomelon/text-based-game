@@ -119,13 +119,13 @@ while(not gameOver):
             #asks player for move input
             print("What attack would you like to select?")
             player = input("Rock, Paper, or Scissors? ")
-            if(player == "rock" or player == "Rock"):
+            if(player.lower() == "rock" or player.lower() == "r"):
                 player = 1
                 validAnswer=True
-            elif(player == "paper" or player == "Paper"):
+            elif(player.lower() == "paper" or player.lower() == "p"):
                 player = 2
                 validAnswer=True
-            elif(player == "scissors" or player == "Scissors"):
+            elif(player.lower() == "scissors" or player.lower() == "s"):
                 player = 2
                 validAnswer=True
             else:
