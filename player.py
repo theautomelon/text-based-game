@@ -39,11 +39,11 @@ class Player:
         # calculates if it is a crit attack
         if r.randint(0,100) < self.crit:    #if it is a crit hit
             damage = damage * 2
-            print('It was a critical hit! You did ' + str(damage) + ' damage to ' + monster.name + ' the ' + monster.species)
+            print('It was a critical hit! You did \033[1;32;40m' + str(damage) + ' damage \033[0;37;40mto ' + monster.name + ' the ' + monster.species)
             print()
 
         else:   #if it is not a crit hit
-            print('You did ' + str(damage) + ' damage to ' + monster.name + ' the ' + monster.species)
+            print('You did \033[1;32;40m' + str(damage) + ' damage \033[0;37;40mto ' + monster.name + ' the ' + monster.species)
             print()
         
         # subtracts the damage from the monster's current health

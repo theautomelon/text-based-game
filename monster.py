@@ -54,10 +54,10 @@ class Monster:
         
         if r.randint(0,100) < self.crit: #if it is a crit hit
             damage = damage * 2
-            print('It was a critical hit! ' + self.name + ' did ' + str(damage) + ' damage to you')
+            print('It was a critical hit! \033[1;31;40m' + self.name + ' did ' + str(damage) + ' damage \033[0;37;40mto you')
             print()
         else:   #if it is not a crit hit
-            print(self.name + ' did ' + str(damage) + ' damage to you')
+            print(self.name + ' did \033[1;31;40m' + str(damage) + ' damage \033[0;37;40mto you')
             print()
         
         # subtracts the damage from the player's current health

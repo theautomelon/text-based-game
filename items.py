@@ -50,7 +50,7 @@ def useItem(name, creature,inventory):
         if(creature.name == "Fabio"):
             healAmount = r.randint(40,60)
             creature.heal(healAmount)
-            print(creature.name+" has healed "+ str(healAmount)+" HP.")
+            print(creature.name+" has healed \033[1;32;40m"+ str(healAmount)+"\033[0;37;40m HP.")
         else:
             print("You cannot use a health potion on an enemy!")
 

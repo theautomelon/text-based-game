@@ -212,14 +212,14 @@ while(not gameOver):
         print("Attack: " + str(fabio.attackDamage))
         print("Crit-Chance: "+ str(fabio.crit))
         print()
-        print("Also, the beast dropped a "+itemName+" which has been added to your inventory!")
+        print("Also, the beast dropped a \033[1;37;40m"+itemName+"\033[0;37;40m which has been added to your inventory!")
         item = createItem(itemName)
         item.itemAdd(fabio.inventory)
 
         
     if (fabio.checkDead()):
         print()
-        print("Aye, ya blasted Ferret! You succumbed to your wounds. I knew you could never make it!")
+        print("\033[1;31;40m Aye, ya blasted Ferret! You succumbed to your wounds. I knew you could never make it! \033[0;37;40m ")
         gameOver= True
         break
 
@@ -230,7 +230,7 @@ while(not gameOver):
     validAnswer = False
     if (stage == 5):
         print()
-        print("I always knew ya had it in ya!")
+        print("\033[1;32;40m I always knew ya had it in ya! \033[0;37;40m ")
         gameOver = True
         break
     
