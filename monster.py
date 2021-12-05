@@ -32,6 +32,6 @@ class Monster:
         if debug:
             print('Creating ' + str(self.name) + ' the ' + str(self.species) + ' with ' + str(self.health) + ' health, ' + str(self.attack) + ' attack, and ' + str(self.crit) + '%' + ' crit-chance')
 
+    def healthStatus(self):
+            print(str(self.name) + ' the ' + str(self.species) + ' has ' + str(self.health) + ' health')
     
-
-Billy = Monster("Billy", "Badger")
