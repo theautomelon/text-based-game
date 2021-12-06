@@ -20,7 +20,7 @@ def printInv(inventory):
         if inventory[i]== '':
             pass
         else:
-            print("Item "+ str(i+1) + ": " + inventory[i])
+            print("Item "+ str(i+1) + ": " + inventory[i].name+" --Quantity: "+str(inventory[i].quantity)+" -- "+inventory[i].description)
 
 def randItem():
     num = r.randint(0,2)
@@ -42,7 +42,7 @@ def setup():
     print(' ')
 
     #story introduction dedentedText makes text look nicer
-    Format.printScroll()
+    #Format.printScroll()
     print(' ')
     input("        PRESS ENTER TO CONTINUE")
 
@@ -176,7 +176,16 @@ while(not gameOver):
                     elif(not fabio.inventory[int(item)-1]):
                         print("You do not have an item in that slot!")
                     else:
-                        useItem(fabio.inventory[int(item)-1], fabio,fabio.inventory)
+                        if fabio.inventory[int(item)-1].quantity > 0:
+                            chosenItemName = fabio.inventory[int(item)-1].name
+                            if (chosenItemName.lower() == 'bomb'):
+                                useItem(chosenItemName, enemy,fabio.inventory)
+                                if (enemy.checkDead()):
+                                    combatOver= True
+                            else:
+                                useItem(chosenItemName, fabio,fabio.inventory)
+                        else:
+                            print("You have run out of that item!")
                         validAnswerB=True
                     print()
             else:
@@ -214,16 +223,22 @@ while(not gameOver):
         print()
         print("Also, the beast dropped a \033[1;37;40m"+itemName+"\033[0;37;40m which has been added to your inventory!")
         item = createItem(itemName)
-        item.itemAdd(fabio.inventory)
+        for i in range(len(fabio.inventory)):
+            if fabio.inventory[i]== '':
+                item.itemAdd(fabio.inventory)
+                break
+            elif itemName == fabio.inventory[i].name:
+                fabio.inventory[i].quantity+=1
+                break
+            
+                    
 
-        
     if (fabio.checkDead()):
         print()
         print("\033[1;31;40m Aye, ya blasted Ferret! You succumbed to your wounds. I knew you could never make it! \033[0;37;40m ")
         gameOver= True
         break
 
-    print(fabio.inventory)
     printInv(fabio.inventory)
     #increases stage after loop, ends game once past 4
     stage+=1
@@ -235,3 +250,4 @@ while(not gameOver):
         gameOver = True
         break
     
+
