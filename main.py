@@ -139,6 +139,8 @@ while(not gameOver):
             print("Would you like to attack or use an item?")
             print("Attacks-----------------------------------------------Items")
             choice1= input()
+            #sets item choice back to false to allow for multiple item uses in encounter
+            validAnswerB = False
             if(choice1.lower()== "attack" or choice1.lower()== "a"):
                 #Rock paper scissors loop
                 while(not validAnswerA):
@@ -168,6 +170,7 @@ while(not gameOver):
                     printInv(fabio.inventory)
                     print()
                     item = input("Enter the number of the item you would like to choose or enter 'return' to go back.")
+                    print()
                     
                     if (item.lower() == 'return'):
                         validAnswerB=True
@@ -181,7 +184,10 @@ while(not gameOver):
                             if (chosenItemName.lower() == 'bomb'):
                                 useItem(chosenItemName, enemy,fabio.inventory)
                                 if (enemy.checkDead()):
-                                    combatOver= True
+                                    validAnswer1 = True
+                                    combatOver = False
+                                    break
+                                    
                             else:
                                 useItem(chosenItemName, fabio,fabio.inventory)
                         else:

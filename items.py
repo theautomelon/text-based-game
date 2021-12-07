@@ -61,7 +61,7 @@ def useItem(name, creature,inventory):
     elif(name.lower() == 'claw' or name.lower() == 'white claw'):
         if(creature.name == "Fabio"):
             creature.crit=101
-            print(creature.name+ "'s crit chance has been increased to 100%% for this encounter")
+            print(creature.name+ "'s crit chance has been increased to 100"+'%'+" for this encounter")
             for x in inventory:
                 if x.name.lower() == 'claw' or x.name.lower() == 'white claw':
                     x.quantity-= 1
@@ -70,9 +70,9 @@ def useItem(name, creature,inventory):
             print("You cannot use a white claw on an enemy!")
 
     elif(name.lower() == 'bomb'):
-        if(creature.name is not "Fabio"):
+        if(creature.name != "Fabio"):
             creature.currentHealth-= 100
-            print(creature.name+" has been dealt 100 damage!")
+            print("You threw a bomb at "+ creature.name+" !")
             for x in inventory:
                 if x.name.lower() == 'bomb':
                     x.quantity-= 1
