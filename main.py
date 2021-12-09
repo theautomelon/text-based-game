@@ -1,10 +1,9 @@
 import random as r
-import textwrap
 from player import *
 from monster import *
 from items import *
 from format import *
-
+from sound import playMusic
 
 #VARIABLES
 gameOver = False
@@ -30,6 +29,9 @@ def randItem():
 
 #print out story and create player character
 def setup():
+
+    #starts music
+    playMusic()
     
     #starting game
     print(' ')
@@ -42,7 +44,7 @@ def setup():
     print(' ')
 
     #story introduction dedentedText makes text look nicer
-    #Format.printScroll()
+    Format.printScroll()
     print(' ')
     input("        PRESS ENTER TO CONTINUE")
 
